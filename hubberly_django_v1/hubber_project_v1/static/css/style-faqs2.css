@@ -1,0 +1,146 @@
+.nav-item-1{
+    /*background:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url("img.jpg");
+*/
+    margin-top:20px;
+    background: none;
+    color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+
+}
+a:hover{
+    color:black;
+}
+#hubber a{
+    padding-left:100px;
+}
+
+
+#nav1{
+    font-size: large;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: auto;
+    display: block;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    font-size: 30px;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#title-FAQS{
+
+    margin-bottom:20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.list-items{
+    text-align: left;
+    align-items: center;
+    padding-top:20px;
+    width: 850px;
+    margin:auto;
+    margin-bottom: 30px;
+}
+.list-items li{
+    margin-top: 10px;
+}
+p{
+    line-height: 2em;
+}
+h4{
+    color: rgb(123, 89, 224);
+}
+
+.grid-container-2 {
+
+    display: grid;
+    grid-template-areas:
+    'choose description ';
+
+    margin-top:50px;
+
+
+}
+#item1 {
+    width: 200px;
+    color: mediumpurple;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin-left: 200px;
+    margin-top: 125px;
+}
+#item2{
+    margin-right:300px;
+}
+.line{
+    border: 1px solid black;
+}
+
+#comment ::placeholder{
+    color:red;
+}
+.form-container-contact{
+    max-width: 100%;
+    height: fit-content;
+    /* background-image: linear-gradient(to bottom, #8335d0, #6253d4, #4765cf, #3d72c4, #497cb5);
+     /*background: #FF416C;
+     background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+     background: linear-gradient(to right, #FF4B2B, #FF416C);*/
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 2em;
+
+}
+#popup-contact{
+    position: absolute;
+    width: 500px;
+    height:fit-content;
+    background: rgb(255,255,255);
+    border-radius:2em;
+    left: 0px;
+    right: 0px;
+    top: 50px;
+
+    margin: auto;
+}
+#overlay-contact  {
+    position: fixed;
+    display: none;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(255,255,255,.8);
+    z-index: 999;
+
+}
+
+@media screen and (max-width: 750px) {
+ .navigatio{
+     display: none;
+ }
+
+
+}

@@ -1,0 +1,48 @@
+body{
+    background: black;
+}
+.nav a{
+  text-decoration: none;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  padding-left:30px;
+  padding-top:30px;
+}
+
+#info{
+    color:white;
+  text-align: center;
+    margin-top:100px;
+}
+
+.wrapper {
+  margin-top:200px;
+  /*This part is important for centering*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:white
+}
+
+.typing-demo {
+  width: 40ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  color:white;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- CSS only -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static "css/style13.css" %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <title>Hubberly Spanish</title>
+
+
+</head>
+
+
+
+<body>
+
+<div class="front-img">
+    <div class="grid-container">
+        <div class="nav-item-1 ">
+            <ul id="nav">
+               <!-- <li id="hubber"><a href="#">Hubberly</a></li>-->
+                <li id="hubber"><a href="#"><img src="{% static "images/Recurso_4.png" %}" alt=""></a></li>
+
+
+                <div class="navigation">
+                    <ul style=" padding-left:100px; height: 200px">
+
+                        <li  style="padding-right: 50px; margin-top:10px;">
+                       <!-- <div class="dropdown">
+                           <button class="dropbtn" style="color:white";>Language
+                              <i class="fa fa-caret-down"></i>
+                            </button>-->
+                            <div class=" langWrap">
+                                <ul>
+                               <li>  <a class="active" language='english'  style="font-size: 14px;" href="{% url 'first_app:index' %}"><span class="flag-icon flag-icon-gb .flag-icon-square"> </span>  </a> </li>
+                               <li> <a  language='spanish' style="font-size: 14px;"  href="#"><span class="flag-icon flag-icon-es"> </span>  </a></li>
+                            </ul>
+
+                            </div>
+                          <!--</div>-->
+                        </li>
+                        <li style="padding-right: 50px"  ><a  class="cc" href="#content-creators">Creador de contenido</a></li>
+                        <li style="padding-right: 50px" > <a  class="inves" href="#investors">Inversores</a></li>
+                        <li style="padding-right: 50px"><a class="us" href="#here">Nosotros</a></li>
+                        <li ><a class="contact"href="javascript:myContactFunction(1)">Contact</a></li>
+
+                        <li style="float: right;padding-right: 50px"><a href="{% url 'first_app:spanish_faqs' %}">FAQS</a></li>
+                        </ul>
+                        <div id="overlay-contact" >
+                            <div id="popup-contact">
+
+                                <form action="{% url 'first_app:Contact_question' %}" class="form-container-contact" method="POST" enctype="multipart/form-data">
+
+                                    {% csrf_token %}
+                                    <a href="javascript:myContactFunction(0);">
+                                        <img  style="float:right; padding:10px;" src="{% static "images/closebutton.png" %}" alt="">
+                                    </a>
+                                    <div style="margin-top:20px;">
+                                        <h1 style=" color:black;text-align: center; padding-bottom: 10px; display: block;margin:auto;font-weight: 600">Entra</h1>
+
+                                    </div>
+
+                                    <label style="margin-left: 50px; font-weight: 500"><b>Nombre</b></label>
+                                    <br>
+                                    <input  style=" margin-left:50px;width:80%;" type="Name" placeholder="Entra el nombre" name="name" >
+                                    <label style="margin-left: 50px;font-weight: 500"><b>Correo electrónico</b></label>
+                                    <br>
+                                    <input style=" margin-left:50px;width: 80%;" type="Email" placeholder="Entra el correo" name="email" >
+                                    <br>
+                                    <label style="margin-left: 50px; font-weight: 500"><b>Mensaje</b></label>
+                                    <br>
+                                    <textarea id="comment" style="background-color:#eee;border:none;margin-left:50px;width:80%;height:100px;" name="message"  placeholder="Deja tu comentario" ></textarea>
+                                    <br>
+                                    <div>
+                                        <input type="submit" class="btn btn-primary" style="width:200px; margin-left: 140px;" value="Envia">
+                                    </div>
+
+
+                                    <br>
+
+                                </form>
+
+                            </div>
+                        </div>
+                        <div id="overlay2">
+                            <div id="popup" style="margin-top:200px;">
+
+                                <div class="container" id="container">
+
+                                    <div class="form-container sign-up-container">
+                                        <a href="javascript:myBlurFunction(0);">
+                                            <img  style="float:right; padding:10px;" src="{% static "images/closebutton.png" %}" alt="">
+                                        </a>
+
+
+                                        <form id="formulari-log" action="{% url 'index' %}"  method="post" >
+                                            {% csrf_token %}
+
+                                            <h1>Crea cuenta   </h1>
+                                            {{user_form}}
+                                            {% if messages %}
+                                            {% for message in messages %}
+                                             <script>
+
+
+                                                            alert('{{message}}')
+
+                                                  </script>
+                                             {% endfor %}
+
+                                            {% endif %}
+
+
+
+                                            <button  style="margin-top:20px;" type="submit" value="Submit">Regístrate</button>
+
+                                        </form>
+
+                                    </div>
+                                    <div class="form-container sign-in-container">
+                                        <a href="javascript:myBlurFunction(0);">
+                                            <img  style="float:right; padding:10px;" src="{% static "images/closebutton.png" %}" alt="">
+                                        </a>
+                                        <form id="formulari-sign" action="{% url 'first_app:user_login' %}" method="POST" >
+                                            {% csrf_token%}
+                                            <h1>Entra</h1>
+
+                                            <input type="username" placeholder="username" name="username"/>
+                                            <input type="password" placeholder="Password" name="password"/>
+                                            <a href="#">Forgot your password?</a>
+                                            <input type="submit" name="" value="login">
+                                        </form>
+                                    </div>
+                                    <div class="overlay-container">
+                                        <div class="overlay">
+                                            <div class="overlay-panel overlay-left">
+                                                <h1>Bienvenido!</h1>
+                                                <p>Entra para estar conectado con nosotros</p>
+                                                <button class="ghost" id="signIn">Entra</button>
+                                            </div>
+                                            <div class="overlay-panel overlay-right">
+                                                <h1>Hola amigo!</h1>
+                                                <p>Entra tus datos personales y empieza esta aventura con nosotros</p>
+                                                <button  class="ghost" id="signUp">Regístrate</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </ul>
+                </div>
+
+
+
+            </ul>
+        </div>
+
+
+        <div class="item3">
+            <!--
+ {% if user.is_authenticated %}
+                <div class="wrapper">
+                    <div class="typing-demo">
+                      Welcome, {{ user.get_username }}. Thanks for logging in.
+                    </div>
+                </div>
+                 {% endif %}-->
+            <div class="grid-container-2">
+               <!-- {% if user.is_authenticated %}
+                <p>Hello This is my Name</p>
+                {% endif %}-->
+
+                <div class="item6">
+
+
+
+                    <div class="cont" style="margin-left:100px;">
+                       <!-- <video id="img-trading" src="{% static "/media/IntroHubberly.mp4" %}" controls="true" autoplay ></video>-->
+                        <!--<source id='img-trading' src="{% static "/media/IntroHubberly.mp4" %}" type='video/mp4>-->
+
+                       <video  id="img-trading" controls playsinline autoplay >
+                            <source src="{% static "media/IntroHubberly.mp4" %}" type="video/mp4" >
+
+                        </video>
+
+                        <div class="overlay3">
+                            <div class="text">
+                                Discover everything about us!
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="item7">
+                    <!--
+                        <h4>You platform to invest on youtuber's</h4>
+                        <h7>Do you want to know more?</h7>
+                  -->
+                    <div class="animated-title ">
+                        <div class="text-top ">
+                            <div>
+                          <span  style="font-size: 50px; width: 460px;"  class="catch-phrase">Propulsa tu canal con Hubberly</span>
+
+                            </div>
+                        </div>
+
+                        <div class="text-bottom" >
+                            <div style="font-size: 30px;text-align: center; width: fit-content">
+
+                                <p style=" width:100%; padding-left: 45px;" class="catch-frase">Aprende todo sobre nosotros</p>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'logout' %}" class="button4" style="background-color:#9a4ef1;margin-left: 50px;">Log out</a>
+                                {% else %}
+                                <a  href="javascript:myBlurFunction(1);" class="button4" style="background-color:#9a4ef1;margin-left: 50px;">Prueba!</a>
+                                {% endif %}
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="arrow">
+                    <a href="#here">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </a>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="second-grid"  id="here" >
+        <div class="grid-2-1" >
+            <h3 class="what">¿Que es Hubberly?</h3>
+            <p class="description">Hubberly es la primera plataforma digital focalizada en ayudar a los Creadores de Contenido a hacer crecer su plataforma de la forma más rápida y eficiente posible. <br> Para conseguir este objetivo, Hubberly ofrecerá dos servicios. Por un lado, ayudar a los Creadores de Contenido en obtener financiación para poder comprar el material que necesitan. Por otro lado, ayudar a Creadores de Contenido a encontrar canales con los que colaborar con el fin de obtener más tráfico y de esta manera hacer crecer su comunidad exponencialmente.</p>
+        </div>
+        <div class="grid-2-2">
+            <img id="inv" src="{% static "images/Recurso_4.png" %}"/></div>
+         
+        <div class="grid-2-3 " id="content-creators" >
+
+
+            <img  id="inv2"src="{% static "images/Logos.png" %}"/></div>
+        <div class="grid-2-4 " >
+            <h3 class="why">¿Por qué Hubberly?</h3>
+            <p class="description-why">En el proceso de crecimiento de un canal, el Creador de Contenido se encontrará principalmente con dos obstáculos. En primer lugar, el material necesario para generar contenido de calidad es muy caro. En segundo lugar, atraer nuevos seguidores es muy complicado.
+                Por estos motivos, hemos decidido crear Hubberly. <br> Con la ayuda de Hubberly, los Creadores de Contenido podrán encontrar personas interesadas en contribuir financieramente en el canal a cambio de una pequeña parte de este. De este modo, el Creador de Contenido podrá realizar las Inversiones necesarias para generar contenido de calidad, y sus seguidores, entre otras personas, podrán obtener un pequeño beneficio monetario. <br> Además, con Hubberly, los Creadores de Contenido podrán encontrar Creadores de diferentes tamaños interesados en realizar colaboraciones o promociones obteniendo de esta manera una nueva fuente de tráfico.</p>
+            </div>
+
+
+    </div>
+
+
+   <div class="third-grid">
+            <div class="grid-3-0">
+                <h1>Casos de uso</h1>
+            </div>
+
+            <div class="grid-3-1" id="investors">
+                <h3 class="why-inv" >Why should you spend €500 of my own money to buy a microhpne if the Hubberly community can help you obtain the funding I need?</h3>
+                <p class="desc-inv">By offering non-monetary rewards or by selling part of your channel to the Hubberly community you will be able to obtain the money that you need to bring your channel to the next level
+                    <br> Some examples of non-monetary rewards include a 15-minute zoom call, online coffee chat, a thank you note, etc. You will decide what reward do you want to give.
+                    <br> On the other hand, helpers will also have the change to support and receive a specific percentage of your channel (specified by you!).</p>
+            </div>
+            <div class="grid-3-2" >
+                <h3 class="why-inv">Why spend hundreds of euros in Google Ads or YouTube ads when you can find Creators with who you can collaborate in Hubberly?</h3>
+                <p class="desc-inv">In Hubberly you will be able to find a community of Creators ready to collabora with each other. By doing collaborations you will be able to reach more people and drive more traffic to your channel.</p>
+
+
+            </div>
+
+
+        </div>
+
+</div>
+
+
+
+    <!--<div class="footer-grid">
+        <div class="footer-1">
+            <h1>HUBBERLY</h1>
+        </div>
+        <div class="footer-2">hello</div>
+        <div class="footer-3">hello</div>
+    </div>
+    -->
+    <footer class="text-center text-white" style="background-color: #f1f1f1;">
+        <!-- Grid container -->
+        <div class="container2 pt-4" style="padding-left: 200px;">
+            <!-- Section: Social media -->
+            <section class="mb-4" style="padding-left:20px">
+
+                <!-- Github -->
+                <a href="" class="fab fa-instagram"></a>
+                <a href=""><img style="width: 50px; height: 50px; margin-right:50px"src="{% static "images/PikPng.com_wpi-logo-png_3465075.png" %}" /></a>
+                <a href=""><img style="width: 50px; height: 50px;margin-right:50px"src="{% static "images/linkedin-3-48.png" %}" /></a>
+
+                <a href=""><img style="width: 60px; height: 60px;margin-right:50px"src="{% static "images/mail-48.png" %}" /></a>
+
+                <a href="#" class="footer-style">Contact us</a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center text-light p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-light" style="color:white;"href="#">Hubberly.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+    var myBlurFunction = function(state) {
+        /* state can be 1 or 0 */
+        var containerElement = document.getElementById('main_container');
+        var overlayEle = document.getElementById('overlay2');
+
+        if (state) {
+            overlayEle.style.display = 'block';
+            containerElement.setAttribute('class', 'blur');
+        } else {
+            overlayEle.style.display = 'none';
+            containerElement.setAttribute('class', null);
+        }
+    };
+    var myContactFunction = function(state) {
+        /* state can be 1 or 0 */
+        var containerElement = document.getElementById('main_container');
+        var overlayEle = document.getElementById('overlay-contact');
+
+        if (state) {
+            overlayEle.style.display = 'block';
+            containerElement.setAttribute('class', 'blur');
+        } else {
+            overlayEle.style.display = 'none';
+            containerElement.setAttribute('class', null);
+        }
+    };
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+
+
+    </script>
+    <script>
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        /*look for any elements with the class "custom-select":*/
+        x = document.getElementsByClassName("custom-select");
+        l = x.length;
+        for (i = 0; i < l; i++) {
+          selElmnt = x[i].getElementsByTagName("select")[0];
+          ll = selElmnt.length;
+          /*for each element, create a new DIV that will act as the selected item:*/
+          a = document.createElement("DIV");
+          a.setAttribute("class", "select-selected");
+          a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+          x[i].appendChild(a);
+          /*for each element, create a new DIV that will contain the option list:*/
+          b = document.createElement("DIV");
+          b.setAttribute("class", "select-items select-hide");
+          for (j = 1; j < ll; j++) {
+            /*for each option in the original select element,
+            create a new DIV that will act as an option item:*/
+            c = document.createElement("DIV");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function(e) {
+                /*when an item is clicked, update the original select box,
+                and the selected item:*/
+                var y, i, k, s, h, sl, yl;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                sl = s.length;
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < sl; i++) {
+                  if (s.options[i].innerHTML == this.innerHTML) {
+                    s.selectedIndex = i;
+                    h.innerHTML = this.innerHTML;
+                    y = this.parentNode.getElementsByClassName("same-as-selected");
+                    yl = y.length;
+                    for (k = 0; k < yl; k++) {
+                      y[k].removeAttribute("class");
+                    }
+                    this.setAttribute("class", "same-as-selected");
+                    break;
+                  }
+                }
+                h.click();
+            });
+            b.appendChild(c);
+          }
+          x[i].appendChild(b);
+          a.addEventListener("click", function(e) {
+              /*when the select box is clicked, close any other select boxes,
+              and open/close the current select box:*/
+              e.stopPropagation();
+              closeAllSelect(this);
+              this.nextSibling.classList.toggle("select-hide");
+              this.classList.toggle("select-arrow-active");
+            });
+        }
+        function closeAllSelect(elmnt) {
+          /*a function that will close all select boxes in the document,
+          except the current select box:*/
+          var x, y, i, xl, yl, arrNo = [];
+          x = document.getElementsByClassName("select-items");
+          y = document.getElementsByClassName("select-selected");
+          xl = x.length;
+          yl = y.length;
+          for (i = 0; i < yl; i++) {
+            if (elmnt == y[i]) {
+              arrNo.push(i)
+            } else {
+              y[i].classList.remove("select-arrow-active");
+            }
+          }
+          for (i = 0; i < xl; i++) {
+            if (arrNo.indexOf(i)) {
+              x[i].classList.add("select-hide");
+            }
+          }
+        }
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
+        </script>
+
+
+
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/24936746.js">
+</script>
+
+</body>
+</html>
+
+<!--   <form  th:action="@{/saveProfile}" th:object="${greeting}" method="post">
+                    <input type="email" class="form-control" id="exampleInputEmail1"  th:field="*{email}" name="Email"aria-describedby="emailHelp">
+                    <div style="padding-top: 10px"class="g-recaptcha" data-sitekey="6LdTZtgbAAAAAGqV94gW-NiQWpu6KSAWBIXyl4Dt"></div>
+                    <button style="margin-top: 10px" type="submit" class="btn btn-light submit-btt">Submit</button>
+                </form>-->
